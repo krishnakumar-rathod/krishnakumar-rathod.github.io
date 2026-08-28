@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Krishnakumar S Rathod — Full Stack Engineer</title>
+<meta name="description" content="Full Stack Engineer in Bengaluru. Node.js, TypeScript, React Native, PostgreSQL, AWS. Three shipped products: Namma Oota, TavaQ, Tara Invitation Video Maker." />
+<meta property="og:title" content="Krishnakumar S Rathod — Full Stack Engineer" />
+<meta property="og:description" content="Three shipped products, built end to end. Node.js · React Native · PostgreSQL · AWS." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F1EEE6;
+  --card:#FBFAF6;
+  --ink:#17181A;
+  --ink-soft:#5C5D5E;
+  --rule:#C9C4B6;
+  --stamp:#C1272D;
+  --paid:#0B7A57;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --sans:'IBM Plex Sans',system-ui,sans-serif;
+  --display:'Anton',Impact,sans-serif;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.6;
+  padding:32px 16px 64px;
+  background-image:radial-gradient(rgba(0,0,0,.035) 1px,transparent 1px);
+  background-size:4px 4px;
+}
+
+.bill{
+  max-width:780px;
+  margin:0 auto;
+  background:var(--card);
+  box-shadow:0 1px 0 rgba(0,0,0,.06),0 18px 44px -28px rgba(0,0,0,.5);
+  position:relative;
+}
+/* perforated top and bottom edges */
+.bill::before,.bill::after{
+  content:"";position:absolute;left:0;right:0;height:10px;
+  background:
+    linear-gradient(-45deg,transparent 66%,var(--card) 67%) 0 0/14px 14px repeat-x,
+    linear-gradient(45deg,transparent 66%,var(--card) 67%) 0 0/14px 14px repeat-x;
+}
+.bill::before{top:-10px;transform:scaleY(-1)}
+.bill::after{bottom:-10px}
+
+.pad{padding:34px 32px}
+@media(max-width:560px){.pad{padding:24px 18px}}
+
+hr.dash{border:0;border-top:1.5px dashed var(--rule);margin:0}
+hr.solid{border:0;border-top:2px solid var(--ink);margin:0}
+
+/* ---------- header ---------- */
+.head{text-align:center;position:relative}
+.shopline{
+  font-family:var(--mono);font-size:11px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--ink-soft);
+}
+h1{
+  font-family:var(--display);
+  font-size:clamp(34px,8.5vw,62px);
+  line-height:.94;letter-spacing:.01em;text-transform:uppercase;
+  margin:10px 0 6px;
+}
+.role{
+  font-family:var(--mono);font-size:13px;font-weight:500;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--stamp);
+}
+.meta{
+  font-family:var(--mono);font-size:12px;color:var(--ink-soft);
+  margin-top:14px;display:flex;gap:6px 18px;justify-content:center;flex-wrap:wrap;
+}
+.meta a{color:var(--ink);text-decoration:none;border-bottom:1.5px solid var(--rule)}
+.meta a:hover{border-color:var(--stamp);color:var(--stamp)}
+
+/* ---------- stamp ---------- */
+.stamp{
+  position:absolute;right:-6px;top:-6px;
+  border:3px solid var(--paid);color:var(--paid);
+  font-family:var(--mono);font-weight:600;font-size:11px;
+  letter-spacing:.14em;text-transform:uppercase;
+  padding:7px 12px;border-radius:3px;
+  transform:rotate(-11deg);opacity:.85;
+  animation:thud .5s cubic-bezier(.2,1.4,.4,1) .35s both;
+}
+@keyframes thud{
+  from{transform:rotate(-11deg) scale(2.2);opacity:0}
+  to{transform:rotate(-11deg) scale(1);opacity:.85}
+}
+@media(max-width:640px){.stamp{position:static;display:inline-block;margin-top:16px;transform:rotate(-3deg);animation:none}}
+
+/* ---------- line items ---------- */
+.section-label{
+  font-family:var(--mono);font-size:11px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ink-soft);margin-bottom:18px;
+}
+.item{padding:22px 0;border-bottom:1.5px dashed var(--rule)}
+.item:last-child{border-bottom:0;padding-bottom:4px}
+.item-top{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+.item-name{font-family:var(--mono);font-size:18px;font-weight:600;letter-spacing:-.01em}
+.item-amt{font-family:var(--mono);font-size:12px;color:var(--ink-soft);white-space:nowrap}
+.item-sub{
+  font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--stamp);margin-top:3px;
+}
+.item-body{margin-top:12px;font-size:15px;color:#303133;max-width:62ch}
+.item-body strong{font-weight:600}
+
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.tag{
+  font-family:var(--mono);font-size:11px;color:var(--ink-soft);
+  border:1.5px solid var(--rule);padding:2px 8px;
+}
+.links{display:flex;gap:18px;flex-wrap:wrap;margin-top:16px}
+.links a{
+  font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--ink);text-decoration:none;
+  border-bottom:2px solid var(--stamp);padding-bottom:2px;
+}
+.links a:hover{color:var(--stamp)}
+
+.shots{display:flex;gap:10px;margin-top:18px;overflow-x:auto;padding-bottom:4px}
+.shots img{
+  width:132px;flex:0 0 auto;border:1.5px solid var(--rule);background:var(--paper);
+}
+
+/* ---------- totals block ---------- */
+.tot{font-family:var(--mono);font-size:13px}
+.tot .row{display:flex;justify-content:space-between;gap:16px;padding:5px 0;color:var(--ink-soft)}
+.tot .row span:last-child{color:var(--ink);text-align:right}
+.tot .grand{
+  display:flex;justify-content:space-between;gap:16px;align-items:baseline;
+  padding-top:14px;margin-top:10px;border-top:2px solid var(--ink);
+}
+.tot .grand b{font-family:var(--display);font-size:clamp(19px,4.4vw,28px);text-transform:uppercase;letter-spacing:.01em;font-weight:400}
+.tot .grand span{font-size:11px;letter-spacing:.2em;text-transform:uppercase}
+
+/* ---------- stack grid ---------- */
+.stack{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px}
+.stack h3{
+  font-family:var(--mono);font-size:11px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--stamp);margin-bottom:8px;font-weight:600;
+}
+.stack p{font-family:var(--mono);font-size:13px;line-height:1.75;color:#303133}
+
+.note{font-size:15px;max-width:62ch;color:#303133}
+.note + .note{margin-top:14px}
+
+.foot{text-align:center}
+.foot .big{
+  font-family:var(--mono);font-size:clamp(15px,3.6vw,19px);font-weight:600;
+  word-break:break-all;
+}
+.foot .big a{color:var(--ink);text-decoration:none;border-bottom:2px solid var(--stamp)}
+.barcode{
+  height:44px;margin:26px auto 12px;max-width:280px;
+  background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 4px,var(--ink) 4px 5px,transparent 5px 9px,var(--ink) 9px 12px,transparent 12px 14px);
+  opacity:.82;
+}
+.thanks{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft)}
+
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+a:focus-visible{outline:2.5px solid var(--stamp);outline-offset:3px}
+</style>
+</head>
+<body>
+
+<main class="bill">
+
+  <!-- HEADER -->
+  <div class="pad head">
+    <div class="stamp">Available for hire</div>
+    <div class="shopline">Bengaluru · Karnataka · India</div>
+    <h1>Krishnakumar<br>S Rathod</h1>
+    <div class="role">Full Stack Engineer</div>
+    <div class="shopline" style="margin-top:8px">AWS Solutions Architect – Associate · exam scheduled</div>
+    <div class="meta">
+      <a href="https://github.com/YOUR_USERNAME">github.com/YOUR_USERNAME</a>
+      <a href="https://www.linkedin.com/in/krishnakumarrathod">linkedin</a>
+      <a href="mailto:kktheperformer@gmail.com">kktheperformer@gmail.com</a>
+    </div>
+  </div>
+
+  <hr class="solid">
+
+  <!-- INTRO -->
+  <div class="pad">
+    <div class="section-label">— Summary —</div>
+    <p class="note">I build production products end to end — frontend, backend, database, and the servers they run on. Three shipped products, built solo or as the technical half of a two-person team.</p>
+    <p class="note">Because there was never anyone to hand deployment to, I write backend code with operational reality in mind: what happens when the payment provider times out, when the render machine dies mid-job, when the restaurant's WiFi drops in the middle of an order.</p>
+  </div>
+
+  <hr class="dash">
+
+  <!-- PROJECTS -->
+  <div class="pad">
+    <div class="section-label">— What I've shipped —</div>
+
+    <!-- 1 -->
+    <div class="item">
+      <div class="item-top">
+        <div>
+          <div class="item-name">Namma Oota</div>
+          <div class="item-sub">Co-founder &amp; Tech Lead · 2023–2024</div>
+        </div>
+        <div class="item-amt">3 apps · 1 backend</div>
+      </div>
+      <p class="item-body">A hyperlocal food delivery platform for Kalaburagi with <strong>three separate React Native apps</strong> — customer, restaurant and rider — on one Node.js backend. Restaurant discovery runs as PostGIS spatial queries rather than distance maths in JavaScript. Razorpay payments are verified server-side with HMAC signatures, and every bill is recomputed on the server so the client can never decide the price. Notifications, rider assignment and payment reconciliation run as background jobs on Redis + BullMQ.</p>
+      <div class="tags">
+        <span class="tag">React Native</span><span class="tag">Expo</span><span class="tag">Node.js</span>
+        <span class="tag">TypeScript</span><span class="tag">PostgreSQL</span><span class="tag">PostGIS</span>
+        <span class="tag">MongoDB</span><span class="tag">Redis</span><span class="tag">BullMQ</span>
+        <span class="tag">Razorpay</span><span class="tag">FCM</span><span class="tag">AWS</span>
+      </div>
+      <div class="shots">
+        <img src="img/01-home-discovery.png" alt="Namma Oota restaurant discovery screen" loading="lazy">
+        <img src="img/02-restaurant-menu.png" alt="Namma Oota restaurant menu screen" loading="lazy">
+        <img src="img/04-cart-cod.png" alt="Namma Oota cart and bill breakdown" loading="lazy">
+        <img src="img/06-order-confirmed.png" alt="Namma Oota order confirmation" loading="lazy">
+      </div>
+      <div class="links"><a href="https://github.com/YOUR_USERNAME/namma-oota">Code &amp; architecture →</a></div>
+    </div>
+
+    <!-- 2 -->
+    <div class="item">
+      <div class="item-top">
+        <div>
+          <div class="item-name">TavaQ</div>
+          <div class="item-sub">Founder &amp; Tech Lead · 2026–present</div>
+        </div>
+        <div class="item-amt">In development</div>
+      </div>
+      <p class="item-body">QR-based dine-in ordering for independent restaurants — an affordable alternative to Petpooja and Toast. Scan the table QR, order from your own phone, split the bill over UPI. Kitchen Display System replaces printed tickets. The whole guest flow is an <strong>offline-first PWA</strong>, because restaurant WiFi in tier-2 cities is not something you can design around — orders queue locally with idempotency keys and sync when the connection returns. Interface works in Kannada, Urdu and English.</p>
+      <div class="tags">
+        <span class="tag">Node.js</span><span class="tag">PostgreSQL</span><span class="tag">Redis</span>
+        <span class="tag">BullMQ</span><span class="tag">PWA</span><span class="tag">Offline-first</span>
+        <span class="tag">Docker</span><span class="tag">UPI</span><span class="tag">AWS ap-south-1</span>
+      </div>
+      <div class="links"><a href="https://github.com/YOUR_USERNAME/tavaq">Code &amp; architecture →</a></div>
+    </div>
+
+    <!-- 3 -->
+    <div class="item">
+      <div class="item-top">
+        <div>
+          <div class="item-name">Tara Invitation Video Maker</div>
+          <div class="item-sub">Founder &amp; Full Stack Developer · 2022–2023</div>
+        </div>
+        <div class="item-amt">Distributed pipeline</div>
+      </div>
+      <p class="item-body">Customers upload photos and details; the system returns a rendered wedding invitation video with no human in the loop. After Effects only runs on Windows, so a Linux API server dispatches render jobs over <strong>Socket.IO to a Windows render agent</strong> driving <code>aerender</code>, streaming progress back to the customer's browser. Long jobs get heartbeats, timeouts and bounded retries — because the render machine occasionally died mid-job and a customer was waiting.</p>
+      <div class="tags">
+        <span class="tag">Node.js</span><span class="tag">Socket.IO</span><span class="tag">MongoDB Atlas</span>
+        <span class="tag">After Effects / aerender</span><span class="tag">Docker</span>
+        <span class="tag">EC2 Linux + Windows</span><span class="tag">CloudFront</span>
+      </div>
+      <div class="links"><a href="https://github.com/YOUR_USERNAME/tara-invitation-video-maker">Code &amp; architecture →</a></div>
+    </div>
+  </div>
+
+  <hr class="dash">
+
+  <!-- STACK -->
+  <div class="pad">
+    <div class="section-label">— Stack —</div>
+    <div class="stack">
+      <div>
+        <h3>Backend</h3>
+        <p>Node.js · Express · TypeScript<br>REST APIs · JWT auth<br>BullMQ workers · Socket.IO</p>
+      </div>
+      <div>
+        <h3>Frontend</h3>
+        <p>React Native (Expo)<br>Progressive Web Apps<br>Offline-first architecture</p>
+      </div>
+      <div>
+        <h3>Data</h3>
+        <p>PostgreSQL · PostGIS<br>MongoDB · Redis<br>Schema design · migrations</p>
+      </div>
+      <div>
+        <h3>Infrastructure</h3>
+        <p>AWS EC2 · S3 · CloudFront<br>Docker · Nginx + SSL · PM2<br>Linux administration · CI/CD</p>
+      </div>
+      <div>
+        <h3>Integrations</h3>
+        <p>Razorpay · UPI<br>Firebase Cloud Messaging<br>Webhook reconciliation</p>
+      </div>
+      <div>
+        <h3>Certification</h3>
+        <p>AWS Certified Solutions<br>Architect – Associate<br>(SAA-C03) · exam scheduled</p>
+      </div>
+      <div>
+        <h3>Learning now</h3>
+        <p>Kubernetes<br>Terraform<br>GitHub Actions</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="dash">
+
+  <!-- TEACHING -->
+  <div class="pad">
+    <div class="section-label">— Also —</div>
+    <p class="note">I teach Cloud, DevOps and AI to engineering students and working professionals as a <strong>Technical Trainer at Happy Minds AI Learning Center</strong>, across Kalaburagi, Bangalore and Hyderabad. A room full of people asking "but why?" is the fastest way to find out what you only half-understand.</p>
+    <p class="note">I also build AI automation for real businesses — n8n workflows, WhatsApp bots and agents that handle work someone was otherwise doing by hand.</p>
+  </div>
+
+  <hr class="dash">
+
+  <!-- TOTALS -->
+  <div class="pad">
+    <div class="section-label">— The bill —</div>
+    <div class="tot">
+      <div class="row"><span>Products shipped end to end</span><span>3</span></div>
+      <div class="row"><span>React Native apps in production</span><span>3</span></div>
+      <div class="row"><span>Payment integrations, signature-verified</span><span>Razorpay · UPI</span></div>
+      <div class="row"><span>Servers provisioned, secured and kept alive</span><span>Linux + Windows</span></div>
+      <div class="row"><span>Engineers available to hand deployment to</span><span>0</span></div>
+      <div class="row"><span>Languages the products speak</span><span>Kannada · Urdu · English</span></div>
+      <div class="grand"><span>Total</span><b>One full stack engineer</b></div>
+    </div>
+  </div>
+
+  <hr class="dash">
+
+  <!-- LOOKING FOR -->
+  <div class="pad">
+    <div class="section-label">— What I'm looking for —</div>
+    <p class="note">I've spent three years being the entire engineering team. I'd like to be part of a real one — working on systems bigger than one person can hold in their head, doing proper code review, and learning from engineers further along than me.</p>
+    <p class="note">Open to <strong>Full Stack Engineer</strong>, <strong>Backend Engineer</strong> and <strong>Software Engineer</strong> roles — Bangalore or remote.</p>
+  </div>
+
+  <hr class="solid">
+
+  <!-- FOOTER -->
+  <div class="pad foot">
+    <div class="big"><a href="mailto:kktheperformer@gmail.com">kktheperformer@gmail.com</a></div>
+    <div class="meta">
+      <a href="https://github.com/YOUR_USERNAME">GitHub</a>
+      <a href="https://www.linkedin.com/in/krishnakumarrathod">LinkedIn</a>
+      <a href="resume.pdf">Résumé (PDF)</a>
+    </div>
+    <div class="barcode" role="presentation"></div>
+    <div class="thanks">Thank you · visit again</div>
+  </div>
+
+</main>
+
+</body>
+</html>
